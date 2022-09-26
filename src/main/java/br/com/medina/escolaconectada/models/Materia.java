@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import br.com.medina.escolaconectada.models.enums.BimestreEnum;
 import br.com.medina.escolaconectada.models.enums.MateriaEnum;
+import br.com.medina.escolaconectada.models.metrics.BimestreMetrics;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
@@ -36,8 +37,13 @@ public class Materia implements Serializable {
 	
 	private List<Aluno> alunos = new ArrayList<Aluno>();
 	
+	private boolean processed = false;
+	
 	@DBRef
 	private Sala sala;
+	
+	@DBRef
+	private BimestreMetrics bMetrics;
 	
 	public MateriaEnum getCodMateria() {
 		return MateriaEnum.toEnum(codMateria);
