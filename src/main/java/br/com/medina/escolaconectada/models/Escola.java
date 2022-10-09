@@ -1,6 +1,8 @@
 package br.com.medina.escolaconectada.models;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
@@ -22,6 +24,9 @@ public class Escola implements Serializable {
 	@Id
 	private String id;
 	private String nome;
+	private boolean processed = false;
+	private Map<Integer,Map<String,Double>> escolaGeneralMetrics = new LinkedHashMap<Integer, Map<String,Double>>();
+	
 	
 	@DBRef
 	private Cidade cidade;
