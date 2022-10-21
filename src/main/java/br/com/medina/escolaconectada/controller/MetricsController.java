@@ -26,31 +26,31 @@ public class MetricsController  {
 	
 	
 	@GetMapping(value = "/sala")
-	public ResponseEntity<List<BimestreMetricsDTO>> getAllById(@RequestParam(name = "salaId", required = true, defaultValue = "") String salaId,
-			@RequestParam(name = "bimestreCod", required = false) Integer bimestreCod,
+	public ResponseEntity<List<BimestreMetricsDTO>> getAllById(@RequestParam(name = "escolaIds", required = true, defaultValue = "") List<String> escolaIds,
+			@RequestParam(name = "seriesIds", required = false) List<Integer> seriesIds,
 			@RequestParam(name = "ano", required = false ) Integer ano,
-			@RequestParam(name = "materiaCod", required = false) Integer materiaCod
+			@RequestParam(name = "materiaCods", required = false) List<Integer> materiaCods
 			
 			) {
 		logger.info("Buscando metricas do bimestre");
-		if(salaId.isEmpty()) {
+		if(escolaIds.isEmpty()) {
 			throw new IllegalArgumentException("id da Sala requerido");
 		}
-		return ResponseEntity.ok(metricsService.listMetricsBy(salaId, bimestreCod, ano, materiaCod));
+		return ResponseEntity.ok(metricsService.listMetricsBy(escolaIds, seriesIds, ano, materiaCods));
 	}
 	
 	@GetMapping(value = "/escola")
-	public ResponseEntity<List<EscolaMetricsDTO>> getAllByEscola(@RequestParam(name = "escolaId", required = true, defaultValue = "") String escolaId,
+	public ResponseEntity<List<EscolaMetricsDTO>> getAllByEscola(@RequestParam(name = "escolaIds", required = true, defaultValue = "") List<String> escolaIds,
 			@RequestParam(name = "bimestreCod", required = false) Integer bimestreCod,
 			@RequestParam(name = "ano", required = false ) Integer ano,
-			@RequestParam(name = "materiaCod", required = false) Integer materiaCod
+			@RequestParam(name = "materiaCods", required = false) List<Integer> materiaCods
 			
 			) {
 		logger.info("Buscando metricas do bimestre");
-		if(escolaId.isEmpty()) {
+		if(escolaIds.isEmpty()) {
 			throw new IllegalArgumentException("id da Escola requerido");
 		}
-		return ResponseEntity.ok(metricsService.listEscolaMetricsBy(escolaId, bimestreCod, ano, materiaCod));
+		return ResponseEntity.ok(metricsService.listEscolaMetricsBy(escolaIds, bimestreCod, ano, materiaCods));
 	}
 
 }

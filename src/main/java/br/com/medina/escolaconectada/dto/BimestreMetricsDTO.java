@@ -22,10 +22,16 @@ public class BimestreMetricsDTO implements Serializable {
 	private String materiaDescription;
 	private Integer materiaCod;
 	private String salaId;
+	private Integer serieId;
+	private String serie;
 
 	private Double mPresenca;
 	private Double mNota;
 	private Double mAvaliacao;
+	
+	private String escolaId;
+	private String escolaName;
+	private String materiaSerieEscolaName;
 
 	private String bimestreName;
 	private Integer ano;
@@ -41,6 +47,11 @@ public class BimestreMetricsDTO implements Serializable {
 		this.dtUpdated = bimestreMetrics.getDtUpdated();
 		this.materiaId = bimestreMetrics.getMateria().getId();
 		this.salaId = bimestreMetrics.getMateria().getSala().getId();
+		this.serie = bimestreMetrics.getMateria().getSala().getSerie().getDescription();
+		this.serieId = bimestreMetrics.getMateria().getSala().getSerie().getId();
+		this.escolaId = bimestreMetrics.getMateria().getSala().getEscola().getId();
+		this.escolaName = bimestreMetrics.getMateria().getSala().getEscola().getNome();
+		this.materiaSerieEscolaName = bimestreMetrics.getMateria().getCodMateria().getDescription() + " - " + bimestreMetrics.getMateria().getSala().getSerie().getDescription() + " - " + bimestreMetrics.getMateria().getSala().getEscola().getNome();
 		this.mNota= bimestreMetrics.getMNota();
 		this.mPresenca = bimestreMetrics.getMPresenca();
 		this.mAvaliacao = bimestreMetrics.getMAvaliacao();

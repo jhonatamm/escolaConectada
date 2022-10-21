@@ -24,6 +24,7 @@ public class EscolaMetricsDTO implements Serializable {
 	
 	private String materiaDescription;
 	private int materiaCod;
+	private String materiaEscolaName;
 	
 	private int ano;
 	private String bimestreName;
@@ -44,6 +45,7 @@ public class EscolaMetricsDTO implements Serializable {
 		this.escolaName =  escolaMetrics.getEscola().getNome();
 		this.materiaDescription = escolaMetrics.getMateriaDescription();
 		this.materiaCod = escolaMetrics.getMateriaCod();
+		this.materiaEscolaName = escolaMetrics.getMateriaDescription() +" - "+ escolaMetrics.getEscola().getNome();
 		this.ano = escolaMetrics.getAno();
 		this.bimestreName = escolaMetrics.getBimestreName();
 		this.bimestreCod = escolaMetrics.getBimestreCod();

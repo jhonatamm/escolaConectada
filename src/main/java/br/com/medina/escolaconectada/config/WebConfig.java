@@ -18,6 +18,7 @@ public class WebConfig implements WebMvcConfigurer {
     	//configuração temporaria para desabilitar cross para estas origens: caso for desenvolver local,  descomentar a linha localhost com a porta a ser usada
     	String[] allowedOrigins = {
     			"http://localhost:3000",
+    			"https://transcendent-valkyrie-713170.netlify.app"
     			//,"localhost:8081"
     	};
         registry.addMapping("/**").allowedOrigins(allowedOrigins)

@@ -124,24 +124,4 @@ public class Utils {
 		}
 			
 	}
-	
-	public static void main(String[] args) {
-		try {
-			//metodo1
-		  //metodo2
-		    Utils.run();
-		    
-		    Utils u = new Utils();
-		    //metodo3
-		    u.EncryptPassword("12344", "33233");
-		   //String newU = u.DecryptPassword("fdsfsf","fsdfdfdfsf");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-	
-	
-	
-
 }
