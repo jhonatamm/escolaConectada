@@ -28,7 +28,24 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+// https://mvnrepository.com/artifact/de.flapdoodle.embed/de.flapdoodle.embed.mongo
+		testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:4.0.6-beta'
+
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+	testCompileOnly 'org.projectlombok:lombok:1.18.24'
 	implementation 'org.jasypt:jasypt:1.9.3'
+}
+
+sourceSets {
+    test {
+        resources {
+            srcDirs "src/test/resources"
+        }
+    }
+}
+
+configurations {
+    compile.exclude module: 'spring-boot-starter-logging'
 }
 
 tasks.named('test') {

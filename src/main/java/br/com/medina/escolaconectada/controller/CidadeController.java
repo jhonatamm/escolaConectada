@@ -54,10 +54,10 @@ public class CidadeController {
 		if (cidade == null || cidade.getNome().isEmpty()) {
 			throw new IllegalArgumentException("Nome necessario");
 		}
-		Cidade newCidade = cidadeService.insert(cidade);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCidade.getId()).toUri();
-		logger.info("Criando cliente URL: " + uri);
-		return ResponseEntity.created(uri).body(newCidade);
+		Cidade newCidade = cidadeService.update(cidade);
+		//URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCidade.getId()).toUri();
+		//logger.info("Criando cliente URL: " + uri);
+		return ResponseEntity.ok(newCidade);
 	}
 
 	

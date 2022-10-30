@@ -13,9 +13,9 @@ public interface ICidadeService {
 	
 	public Cidade findCidadeByName(String name);
 	
-	public Cidade insert(Cidade clientDTO);
+	public Cidade insert(Cidade cidadeDTO);
 	
-	public Cidade update(Cidade clientDTO);	
+	public Cidade update(Cidade cidadeDTO);	
 	
 	public void deleteCidadeById(String id);
 
